@@ -1,0 +1,265 @@
+﻿12
+Coiffe de Rabadon
+IMG/ITEMS/Rabadon's_Deathcap_item.png
+O01
+3800
+0
+0
+0
+0
+0
+0
+120
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : augmente la puissance de 35%
+
+Ouragan de Runaan
+IMG/ITEMS/Runaan's_Hurricane_item.png
+O02
+2600
+7
+0
+0
+0
+0
+0
+0
+40
+0
+0
+30
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Les attaques de base tirent sur 2 ennemis proches supplémentaires infligent des dégâts physique équivalents à 25% des dégats d'attaque. Peut infliger des dégâts à l'impact.
+
+Baton Seculaire
+IMG/ITEMS/Rod_of_Ages_item.png
+O03
+2600
+0
+300
+0
+300
+0
+0
+60
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive : gagne +20PV +10Mana +4Puissance chaque minute jusqu'a un max. de +200PV +100Mana et +40Puissance.
+
+Botte de célérité
+IMG/ITEMS/Boots_of_Swiftness_item.png
+O04
+900
+55
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Réduit de 1/4 les ralentissements.
+
+Pistolame Hextech
+IMG/ITEMS/Hextech_Gunblade_item.png
+O05
+3400
+0
+0
+0
+0
+0
+35
+80
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Rend des PV équivalents à 15% des dégâts infligés. 33% d'éfficacité pour les dégâts de zone.
+Propriété active UNIQUE : inflige 250 (+30% de la puissance) pts de dégâts magiques et ralenti la vitesse de déplacement du champion ciblé de 40% pendant 2 seconde.
+Soif de sang
+IMG/ITEMS/The_Bloodthirster_item.png
+O06
+3700
+0
+0
+0
+0
+0
+75
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : +20% de vol de vie
+
+Sceptre Abyssal
+IMG/ITEMS/Abyssal_Scepter_item.png
+O07
+2750
+0
+0
+0
+0
+0
+0
+60
+0
+0
+60
+0
+0
+0
+0
+0
+-10
+Halo UNIQUE : réduit de 10 - 25 la résistance magique des champions ennemis proches.
+
+Fléau de Liche
+IMG/ITEMS/Lich_Bane_item.png
+O08
+3000
+5
+0
+0
+250
+0
+0
+80
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE - Lame Enchantée : après l'utilisation d'une compétence, votre prochaine attaque de base (à l'impact) infligera des dégâts magiques supplémentaires équivalents à 75% de vos dégâts d'attaque de base (+50%) pts de dégâts magiques supplémentaires. 1,5 secondes de récupération.
+
+Echo de Luden
+IMG/ITEMS/Luden's_Echo_item.png
+O09
+3000
+10
+0
+0
+0
+0
+0
+100
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Vous déplacer et lancer des sorts génère des charges. À 100 charges, le prochain sort consomme ces charges pour infliger 100 + (10%) de dégâts magiques supplémentaires à l'impact à 4 cibles maximum
+
+Tabi de Ninja
+IMG/ITEMS/Ninja_Tabi_item.png
+O10
+1100
+45
+0
+0
+0
+0
+0
+0
+0
+25
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Réduit de 12% les degâts des attaques de bases que vous recevez.
+
+Tourment de Liandry
+IMG/ITEMS/Liandry's_Torment_item.png
+O11
+3200
+0
+300
+0
+0
+0
+0
+60
+0
+0
+0
+0
+0
+0
+15
+0
+0
+Propriété passive UNIQUE : les sorts brûlent les ennemis pendant 3 sec, infligeant des dégâts magiques supplémentaires équivalents à 2% de leurs PV actuels par seconde. Les dégâts des brûlures sont doublés contre les unités aux déplacements restreints.
+
+Salutations de Dominik
+IMG/ITEMS/Lord_Dominik's_Regards_item.png
+O12
+2700
+0
+0
+0
+0
+0
+40
+0
+0
+0
+0
+0
+0
+45
+0
+0
+0
+Propriété passive UNIQUE - Tueur de géants : octroie jusqu'à +15% de dégâts physiques contre les champions ennemis qui ont plus de PV max que vous (+1.5% de dégâts tous les 50 PV de différence, jusqu'à un maximum de 500 PV de différence).
+

@@ -1,0 +1,64 @@
+1
+Alistar
+Minotaure
+Support
+Image
+C01
+330
+613,36
+106
+8,675
+0,85
+278,84
+38
+8,5
+0,8
+61,1116
+3,62
+0
+0,75
+2,125
+24,38
+3,5
+32,1
+1,25
+0
+0
+0
+0
+0
+Trample
+Pas De Coup
+Fait Trembler le sol {0}
+20
+0
+0
+0
+Pulverize
+65/70/75/80/85 Mana
+Smash The Ground
+50
+0
+0
+0
+Headbutt
+65/70/75/80/85 Mana
+Coup De Tete
+70
+0
+0
+0
+Triumphant Roar
+50/60/70/80/90 Mana
+Cri qui Soigne
+20
+0
+0
+0
+Unbreakable Will
+100 Mana
+Resiste Beaucoup au degats
+0
+0
+0
+0

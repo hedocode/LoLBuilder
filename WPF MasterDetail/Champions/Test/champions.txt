@@ -1,0 +1,64 @@
+1
+Alistar
+Minotaure
+Support
+Image
+C01
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans les {1} yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans les yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans {1} yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans les {1} yeux
+50
+56
+0
+0

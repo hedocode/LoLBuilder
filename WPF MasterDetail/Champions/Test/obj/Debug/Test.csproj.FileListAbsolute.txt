@@ -1,0 +1,11 @@
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\bin\Debug\Test.exe.config
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\bin\Debug\Test.exe
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\bin\Debug\Test.pdb
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\bin\Debug\Champions.dll
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\bin\Debug\Champions.pdb
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\obj\Debug\Test.exe
+c:\users\florent\documents\visual studio 2015\Projects\Champions\Test\obj\Debug\Test.pdb
+J:\Projet\Champions\Test\bin\Debug\Test.exe.config
+J:\Projet\Champions\Test\obj\Debug\Test.exe
+J:\Projet\Champions\Test\obj\Debug\Test.pdb

@@ -1,0 +1,13 @@
+J:\Projet\Champions\Champions\bin\Debug\Data.dll
+J:\Projet\Champions\Champions\bin\Debug\Data.pdb
+J:\Projet\Champions\Champions\obj\Debug\Data.dll
+J:\Projet\Champions\Champions\obj\Debug\Data.pdb
+G:\Projet\Champions\Champions\bin\Debug\Data.dll
+G:\Projet\Champions\Champions\bin\Debug\Data.pdb
+G:\Projet\Champions\Champions\obj\Debug\Data.dll
+G:\Projet\Champions\Champions\obj\Debug\Data.pdb
+F:\1\Projet IHM 1ere année\Projet\Champions\Champions\bin\Debug\Data.dll
+F:\1\Projet IHM 1ere année\Projet\Champions\Champions\bin\Debug\Data.pdb
+F:\1\Projet IHM 1ere année\Projet\Champions\Champions\obj\Debug\Data.csprojResolveAssemblyReference.cache
+F:\1\Projet IHM 1ere année\Projet\Champions\Champions\obj\Debug\Data.dll
+F:\1\Projet IHM 1ere année\Projet\Champions\Champions\obj\Debug\Data.pdb

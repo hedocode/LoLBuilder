@@ -1,0 +1,126 @@
+6
+Rabadon
+IMG/ITEMS/Rabadon's_Deathcap_item.png
+O01
+3800
+0
+0
+0
+0
+0
+0
+120
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : augmente la puissance de 35%
+
+Runaan
+IMG/ITEMS/Runaan's_Hurricane_item.png
+O02
+2600
+7
+40
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+0
+0
+35
+Propriété passive UNIQUE : Les attaques de base tirent sur 2 ennemis proches supplémentaires infligent des dégâts physique équivalents à 25% des dégats d'attaque. Peut infliger des dégâts à l'impact.
+
+Baton Seculaire
+IMG/ITEMS/Rod_of_Ages_item.png
+O03
+2600
+0
+300
+0
+300
+0
+0
+60
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive : gagne +20PV +10Mana +4Puissance chaque minute jusqu'a un max. de +200PV +100Mana et +40Puissance.
+
+Botte de célérité
+IMG/ITEMS/Boots_of_Swiftness_item.png
+O04
+900
+55
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Réduit de 1/4 les ralentissements.
+
+Pistolame Hextech
+IMG/ITEMS/Hextech_Gunblade_item.png
+O05
+3400
+0
+0
+0
+0
+0
+35
+80
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : Rend des PV équivalents à 15% des dégâts infligés. 33% d'éfficacité pour les dégâts de zone.
+Propriété active UNIQUE : inflige 250 (+30% de la puissance) pts de dégâts magiques et ralenti la vitesse de déplacement du champion ciblé de 40% pendant 2 seconde.
+Soif de sang
+IMG/ITEMS/The_Bloodthirster_item.png
+O06
+3700
+0
+0
+0
+0
+0
+75
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Propriété passive UNIQUE : +20% de vol de vie

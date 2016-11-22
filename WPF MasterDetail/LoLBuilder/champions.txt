@@ -1,0 +1,131 @@
+2
+Alistar
+Minotaure
+Support
+IMG/CHAMPS/Alistar_Splash_Tile_5.jpg
+C01
+330
+613,36
+106
+8,675
+0,85
+279
+35,8
+8,5
+0,75
+61,11
+3,62
+0
+0,625
+0,0133
+24,38
+3,5
+32,1
+1,25
+0
+0
+0
+0
+0
+125
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans les {1} yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans les yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans {1} yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans yeux
+50
+42
+0
+0
+Coup Du Minotaure
+50 Mana
+maman a {0} etoiles dans les {1} yeux
+50
+56
+0
+0
+Ekko
+Fractureur du temps
+Assassin
+IMG/CHAMPS/Ekko_Splash_Tile_0.jpg
+C02
+340
+580
+80
+9
+0,9
+280
+50
+6
+0,8
+59
+3
+0
+0,625
+3,3
+27
+3
+32
+1,25
+0
+0
+0
+0
+0
+125
+0
+Drive Resonance
+Pas de coup
+Fait plus de degat avec ses attaques
+0
+0
+0
+0
+Timewinder
+50/60/70/80/90 Mana
+Boomerangue Magique
+10
+60
+0
+0
+Parallel Convergence
+50/55/60/65/70 Mana
+Champ ralentissant
+3
+150
+0
+0
+Phase Dive
+40/50/60/70/80 Mana
+Peut se deplacer rapidement
+40
+0
+0
+0
+Chronobreak
+100 Mana
+Revient 4 secondes en arriere
+1
+130
+0
+0

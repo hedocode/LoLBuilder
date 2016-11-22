@@ -1,0 +1,270 @@
+﻿<Window x:Class="LoLBuilder.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoLBuilder"
+        mc:Ignorable="d"
+        Title="SecondWindow" Height="450" Width="350" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" Icon="IMG/Tray_48.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel x:Name="TitleBar" Height="30" VerticalAlignment="Top" MouseDown="Drag">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="IMG/gifting_nav_bg.jpg"></ImageBrush>
+            </DockPanel.Background>
+
+            <Button Width="24" Height="24" x:Name="CloseButton" DockPanel.Dock="Right" Click="CloseButton_Click" BorderThickness="0" Margin="0,0,5,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="IMG/close_button_up.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="IMG/close_button_down.png"/>
+                                                </Border.Background>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="24" Height="24" x:Name="MaxButton" DockPanel.Dock="Right" BorderThickness="0" Click="MaxButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="IMG/maximize_button_up.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="IMG/maximize_button_down.png"/>
+                                                </Border.Background>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="MinButton" Width="24" Height="24" DockPanel.Dock="Right" BorderThickness="0" Click="MinButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="IMG/min_button_up.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="IMG/min_button_down.png"/>
+                                                </Border.Background>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image Width="16" Height="16" Source="IMG/Tray_16.png" Margin="10,0,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,5,10,5" Foreground="Aqua">LoL Builder</TextBlock>
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="IMG/bg-modal.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid DataContext="{Binding Source={StaticResource build}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="Margin" Value="20,8,20,8"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="Viewbox">
+                        <Setter Property="Height" Value="50"/>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Opacity" Value="0.2"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Viewbox>
+                    <Image DataContext="{Binding SelectedItem,ElementName=Champ}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Champion :" Grid.Column="1"/>
+                <ComboBox Grid.Column="2" x:Name="Champ"
+                              IsSynchronizedWithCurrentItem="True"
+                              DataContext="{Binding Path=champList}"
+                              ItemsSource="{Binding Path=champions}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Viewbox Grid.Row="1">
+                    <Image DataContext="{Binding SelectedItem,ElementName=obj1}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Objet 1:" Grid.Column="1" Grid.Row="1"/>
+                <ComboBox Grid.Row="1" Grid.Column="2" x:Name="obj1"
+                              DataContext="{Binding Path=objList}"
+                              ItemsSource="{Binding Path=objets}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Viewbox Grid.Row="2">
+                    <Image DataContext="{Binding SelectedItem,ElementName=obj2}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Objet 2:" Grid.Column="1" Grid.Row="2"/>
+                <ComboBox Grid.Row="2" Grid.Column="2" x:Name="obj2"
+                              DataContext="{Binding Path=objList}"
+                              ItemsSource="{Binding Path=objets}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Viewbox Grid.Row="3">
+                    <Image DataContext="{Binding SelectedItem,ElementName=obj3}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Objet 3:" Grid.Column="1" Grid.Row="3"/>
+                <ComboBox Grid.Row="3" Grid.Column="2" x:Name="obj3"
+                              DataContext="{Binding Path=objList}"
+                              ItemsSource="{Binding Path=objets}">
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Viewbox Grid.Row="4">
+                    <Image DataContext="{Binding SelectedItem,ElementName=obj4}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Objet 4:" Grid.Column="1" Grid.Row="4"/>
+                <ComboBox Grid.Row="4" Grid.Column="2" x:Name="obj4"
+                              DataContext="{Binding Path=objList}"
+                              ItemsSource="{Binding Path=objets}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Viewbox Grid.Row="5">
+                    <Image DataContext="{Binding SelectedItem,ElementName=obj5}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Objet 5:" Grid.Column="1" Grid.Row="5"/>
+                <ComboBox Grid.Row="5" Grid.Column="2" x:Name="obj5"
+                              DataContext="{Binding Path=objList}"
+                              ItemsSource="{Binding Path=objets}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Viewbox Grid.Row="6">
+                    <Image DataContext="{Binding SelectedItem,ElementName=obj6}"
+                           Source="{Binding Path=Image}"></Image>
+                </Viewbox>
+                <Label Content="Objet 6:" Grid.Column="1" Grid.Row="6"/>
+                <ComboBox Grid.Row="6" Grid.Column="2" x:Name="obj6"
+                              DataContext="{Binding Path=objList}"
+                              ItemsSource="{Binding Path=objets}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Nom}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Label Grid.Row="7" Grid.ColumnSpan="2" Content="Nom du Build:"
+                       HorizontalAlignment="Right"/>
+                <TextBox Grid.Row="7" Grid.Column="2" Margin="20,15,20,15" x:Name="titre"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+
+            </Grid>
+
+            <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+                <Button Content="Quitter" HorizontalAlignment="Right" Margin="5" Click="CloseButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="IMG/blank_button.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Valider" HorizontalAlignment="Right" Margin="5" Click="ValidButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="IMG/blank_button.png"/>
+                    </Button.Background>
+                </Button>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>

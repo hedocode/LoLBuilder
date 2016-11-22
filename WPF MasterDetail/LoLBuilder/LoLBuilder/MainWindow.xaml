@@ -1,0 +1,785 @@
+﻿<Window x:Class="LoLBuilder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Data;assembly=Data"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="610" Width="1010" MinHeight="610" MinWidth="1010" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Icon="IMG/Tray_48.png" x:Name="Win">
+    <!--CustomControl pour le header-->
+
+    <Window.Resources>
+
+        <local:ObjetListe x:Key="ItemList"/>
+        <local:ChampionListe x:Key="ChampList"/>
+        <local:BuildListe x:Key="BuildList"/>
+
+        <CollectionViewSource x:Key="ItemView" Source="{Binding objets,Source={StaticResource ItemList}}"/>
+        <CollectionViewSource x:Key="ChampView" Source="{Binding champions,Source={StaticResource ChampList}}"/>
+        <CollectionViewSource x:Key="BuildView" Source="{Binding Builds,Source={StaticResource BuildList}}"/>
+        <CollectionViewSource x:Key="SpellView" Source="{Binding sorts,Source={StaticResource ChampView}}"/>
+
+        <Style TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="IMG/blank_button.png"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderBrush="Black" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="IMG/bw_blank_button.png"/>
+                                    </Border.Background>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderBrush="OrangeRed" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="IMG/blank_button.png"/>
+                                    </Border.Background>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="Cursor">
+                <Setter.Value>
+                    Hand
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid Height="Auto" Width="Auto">
+                            <Border>
+                                <Image Source="IMG/blank_button.png" Stretch="Uniform"/>
+                            </Border>
+                            <ContentPresenter/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Width" Value="125"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="RadioButton">
+                                <Grid Height="Auto" Width="Auto">
+                                    <Border>
+                                        <Image Source="IMG/bw_blank_button.png" Stretch="Uniform"/>
+                                    </Border>
+                                    <ContentPresenter/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Height" Value="60"/>
+                    <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid Height="Auto" Width="Auto">
+                            <Border>
+                                <Image Source="IMG/blank_button.png" Stretch="Uniform"/>
+                            </Border>
+                            <ContentPresenter/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel x:Name="TitleBar" Height="30" VerticalAlignment="Top" MouseDown="Drag">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="IMG/gifting_nav_bg.jpg"></ImageBrush>
+            </DockPanel.Background>
+
+            <Button Width="24" Height="24" x:Name="CloseButton" DockPanel.Dock="Right" Click="CloseButton_Click" BorderThickness="0" Margin="0,0,5,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="IMG/close_button_up.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="IMG/close_button_down.png"/>
+                                                </Border.Background>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="24" Height="24" x:Name="MaxButton" DockPanel.Dock="Right" BorderThickness="0" Click="MaxButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="IMG/maximize_button_up.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="IMG/maximize_button_down.png" Stretch="Uniform"/>
+                                                </Border.Background>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="MinButton" Width="24" Height="24" DockPanel.Dock="Right" BorderThickness="0" Click="MinButton_Click" VerticalContentAlignment="Stretch">
+                <Button.Background>
+                    <ImageBrush ImageSource="IMG/min_button_up.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="IMG/min_button_down.png"/>
+                                                </Border.Background>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Image Width="16" Height="16" Source="IMG/Tray_16.png" Margin="10,0,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,5,10,5" Foreground="Aqua">LoL Builder</TextBlock>
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="IMG/bg-landing.jpg"/>
+            </Grid.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="4*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button MaxHeight="100" BorderThickness="0" Margin="20" Content="Ajouter un build" Click="Add_Build" FontSize="20" FontWeight="Bold" x:Name="AddBuildButton">
+                    <Button.Background>
+                        <ImageBrush ImageSource="IMG/blank_button.png"/>
+                    </Button.Background>
+                </Button>
+                <Grid Grid.Column="1" HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Name="mButtonTriAlpha" Content="ABC" Height="30" Width="45" Margin="5" Click="TriButton_Click"/>
+                    <Button Name="mButtonTriAhpla" Content="CBA" Height="30" Width="45" Margin="5" Click="TriButton_Click" Grid.Column="1"/>
+                    <Button Name="mButtonTriPrix" Content="Prix +" Height="30" Width="45" Margin="5" Click="TriButton_Click" Grid.Column="2"/>
+                    <Button Name="mButtonTriXirp" Content="Prix -" Height="30" Width="45" Margin="5,5,0,5" Click="TriButton_Click" Grid.Column="3"/>
+                    <RadioButton Grid.Column="4" Margin="20" Checked="RadioButton_Checked" IsChecked="True">
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold">Builds</TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Grid.Column="5" Margin="20" Checked="RadioButton_Checked_1">
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold">Champions</TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Grid.Column="6" Margin="20" Checked="RadioButton_Checked_2" FontSize="20" FontWeight="Bold">
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center">Objets</TextBlock>
+                    </RadioButton>
+                </Grid>
+
+                <Grid Background="White" Opacity="0.2" Grid.Row="1" Margin="20"/>
+                <Grid Background="White" Opacity="0.2" Grid.Row="1" Grid.Column="1" Margin="20"/>
+
+                <ListBox ItemsSource="{Binding objets, Source={StaticResource ItemList}}" 
+                         IsSynchronizedWithCurrentItem="True" Margin="20" BorderThickness="0" 
+                         Grid.Row="1" x:Name="ItemsListBox" Visibility="Hidden" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border>
+                                    <Grid Width="180">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Width="50" Height="50" Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="1">
+                                            <Image Width="50" Source="{Binding Image}"/>
+                                        </Border>
+                                        <TextBlock Grid.Column="1" FontWeight="Bold" Width="65" Margin="5" Text="{Binding Nom}" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                                        <Label Content="{Binding Prix}" VerticalAlignment="Center" Grid.Column="3"/>
+                                        <Image Width="20" Source="IMG\ITEMS\coin.png" Height="20" Grid.Column="4"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <ListBox x:Name="ChampsListBox"
+                         ItemsSource="{Binding champions, Source={StaticResource ChampList}}" 
+                         IsSynchronizedWithCurrentItem="True" Margin="20" BorderThickness="0" 
+                         Grid.Row="1" Visibility="Hidden" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border>
+                                    <Grid Width="180">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="75"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Width="50" Height="50" Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="1">
+                                            <Image Source="{Binding Image}"/>
+                                        </Border>
+                                        
+                                        <TextBlock Text="{Binding Nom}" Margin="5" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Grid.Column="1" FontWeight="Bold" />
+                                        <Label Content="{Binding Prix}" VerticalAlignment="Center" Grid.Column="3"/>
+                                        <Image Height="15" Width="15" Source="IMG/ITEMS/IpPoints.png" Grid.Column="4"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <ListBox x:Name="BuildListBox"
+                         ItemsSource="{Binding Builds,Source={StaticResource BuildList}}" 
+                         IsSynchronizedWithCurrentItem="True" Margin="20" BorderThickness="0" 
+                         Grid.Row="1" Visibility="Visible" Background="Transparent">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Supprimer" Click="DeleteBuild_Click"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border>
+                                    <Grid Width="180">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Width="50" Height="50" BorderBrush="Black" BorderThickness="1" CornerRadius="1">
+                                                <Image Width="50" Source="{Binding Image}"/>
+                                            </Border>
+                                            <TextBlock Width="55" Margin="5" Text="{Binding Nom}" FontWeight="Bold" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Grid.Column="1"/>
+                                            <Label Content="{Binding Prix}" VerticalAlignment="Center" Grid.Column="3"/>
+                                            <Image Width="20" Source="IMG\ITEMS\coin.png" Height="20" Grid.Column="4"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <ContentControl x:Name="ItemDetail" 
+                                    Content="{Binding Path=SelectedItem, ElementName=ItemsListBox}" 
+                                    Visibility="Hidden" Grid.Row="1" Grid.Column="1" Margin="20"
+                                    Background="Transparent">
+                    <ContentControl.ContentTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="245"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="150"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" Margin="20,20,0,0" VerticalAlignment="Top">
+                                        <Border Width="75" Height="75" BorderBrush="Black" BorderThickness="2" CornerRadius="2">
+                                            <Image Width="75" Height="75" Source="{Binding Image}"/>
+                                        </Border>
+                                        <StackPanel VerticalAlignment="Center" Margin="5">
+                                            <Label Content="{Binding Nom}" FontSize="16" FontWeight="Bold"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding Prix}"/>
+                                                <Image Width="20" Source="IMG\ITEMS\coin.png" Height="20"/>
+                                            </StackPanel>
+                                            
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+                                    <ScrollViewer Grid.ColumnSpan="2" Margin="30" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                        <TextBlock Text="{Binding StatsInfo,Mode=OneWay}" TextWrapping="WrapWithOverflow"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </ContentControl.ContentTemplate>
+                </ContentControl>
+
+                <ContentControl x:Name="ChampDetail" Grid.Row="1" Grid.Column="1" 
+                                Content="{Binding Path=SelectedItem, ElementName=ChampsListBox}" Visibility="Hidden"
+                                Background="Transparent" Margin="20">
+                    <ContentControl.ContentTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="240"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" Margin="20,11,0,0" VerticalAlignment="Top">
+                                        <Border Width="75" Height="75" BorderBrush="Black" BorderThickness="2" CornerRadius="2">
+                                            <Image Width="75" Height="75" Source="{Binding Image}"/>
+                                        </Border>
+                                        <StackPanel VerticalAlignment="Center" Margin="5">
+                                            <Label Content="{Binding Nom}" FontSize="16" FontWeight="Bold"/>
+                                            <Label Content="{Binding Desc}"/>
+                                            <Label Content="{Binding Role}"/>
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                    <TextBox x:Name="Sante" Visibility="Hidden" Text="{Binding Sante}"/>
+                                    <TextBox x:Name="ProgSante" Visibility="Hidden" Text="{Binding ProgSante}"/>
+                                    <TextBox x:Name="Mana" Visibility="Hidden" Text="{Binding Mana}"/>
+                                    <TextBox x:Name="ProgMana" Visibility="Hidden" Text="{Binding ProgMana}"/>
+                                    <TextBox x:Name="RegeSante" Visibility="Hidden" Text="{Binding RegeSante}"/>
+                                    <TextBox x:Name="ProgRegeSante" Visibility="Hidden" Text="{Binding ProgRegeSante}"/>
+                                    <TextBox x:Name="RegeMana" Visibility="Hidden" Text="{Binding RegeMana}"/>
+                                    <TextBox x:Name="ProgRegeMana" Visibility="Hidden" Text="{Binding ProgRegeMana}"/>
+                                    <TextBox x:Name="Physique" Visibility="Hidden" Text="{Binding Physique}"/>
+                                    <TextBox x:Name="ProgPhysique" Visibility="Hidden" Text="{Binding ProgPhysique}"/>
+                                    <TextBox x:Name="VitAttak" Visibility="Hidden" Text="{Binding VitAttak}"/>
+                                    <TextBox x:Name="ProgVitAttak" Visibility="Hidden" Text="{Binding ProgVitAttak}"/>
+                                    <TextBox x:Name="Range" Visibility="Hidden" Text="{Binding Range}"/>
+                                    <TextBox x:Name="ProgRange" Visibility="Hidden" Text="{Binding ProgRange}"/>
+                                    <TextBox x:Name="Armure" Visibility="Hidden" Text="{Binding Armure}"/>
+                                    <TextBox x:Name="ProgArmure" Visibility="Hidden" Text="{Binding ProgArmure}"/>
+                                    <TextBox x:Name="ResMagic" Visibility="Hidden" Text="{Binding ResMagic}"/>
+                                    <TextBox x:Name="ProgResMagic" Visibility="Hidden" Text="{Binding ProgResMagic}"/>
+
+                                    <Grid Grid.Column="1" Margin="20">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="0">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}PV: {0} (+ {1}/niv)">
+                                                    <Binding Path="Sante"/>
+                                                    <Binding Path="ProgSante"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="1">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Regen. PV: {0} (+ {1}/niv)">
+                                                    <Binding Path="RegeSante"/>
+                                                    <Binding Path="ProgRegeSante"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="2">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Dégats d'attaque: {0} (+ {1}/niv)">
+                                                    <Binding Path="Physique"/>
+                                                    <Binding Path="ProgPhysique"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="3">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Vitesse d'attaque: {0} (+ {1}/niv)">
+                                                    <Binding Path="VitAttak"/>
+                                                    <Binding Path="ProgVitAttak"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="4">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Portée: {0} (+ {1}/niv)">
+                                                    <Binding Path="Range"/>
+                                                    <Binding Path="ProgRange"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+
+                                        <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="0">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Mana: {0} (+ {1}/niv)">
+                                                    <Binding Path="Mana"/>
+                                                    <Binding Path="ProgMana"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="1">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Regen. Mana: {0} (+ {1}/niv)">
+                                                    <Binding Path="RegeMana"/>
+                                                    <Binding Path="ProgRegeMana"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="2">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Armure: {0} (+ {1}/niv)">
+                                                    <Binding Path="Armure"/>
+                                                    <Binding Path="ProgArmure"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="3">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}Résistance magique: {0} (+ {1}/niv)">
+                                                    <Binding Path="ResMagic"/>
+                                                    <Binding Path="ProgResMagic"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="4" Text="{Binding Vitesse, StringFormat={}Vitesse de déplacement : {0}}">
+                                        </TextBlock>
+
+                                        
+
+                                    </Grid>
+
+                                    <ListView VerticalAlignment="Top" x:Name="ChampsSpellsListBox" Margin="20" Height="200" ItemsSource="{Binding sorts}" Background="Gray" Grid.Row="1">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border>
+                                                    <Grid Width="180">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Text="{Binding Nom}" Grid.Column="1"/>
+                                                        <Image Source="{Binding Image}" Margin="0,2,0,2" Width="30" Height="30" Grid.Column="0"/>
+                                                        <TextBlock Text="{Binding Prix}" Grid.Column="3"/>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+
+                                    <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Path=SelectedItem, ElementName=ChampsSpellsListBox}">
+                                        <ContentControl.ContentTemplate>
+                                            <DataTemplate>
+
+
+
+                                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.RowSpan="2">
+                                                    <Grid Margin="20">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="100"/>
+                                                            <RowDefinition />
+                                                        </Grid.RowDefinitions>
+                                                        <Border  Height="75" Width="75" BorderBrush="Black" BorderThickness="2" CornerRadius="2" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                            <Image Width="73" Height="73" Source="{Binding Image}" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                        </Border>
+                                                        <TextBlock Text="{Binding SpellInfo}" TextWrapping="WrapWithOverflow" Grid.RowSpan="2"/>
+                                                    </Grid>
+                                                </ScrollViewer>
+                                            </DataTemplate>
+                                        </ContentControl.ContentTemplate>
+
+                                    </ContentControl>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </ContentControl.ContentTemplate>
+                </ContentControl>
+                <ContentControl x:Name="BuildDetail" Grid.Row="1" Grid.Column="1" 
+                                Content="{Binding Path=SelectedItem, ElementName=BuildListBox}" Visibility="Visible"
+                                Background="Transparent" Margin="20">
+                    <ContentControl.ContentTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="240"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="120"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" Margin="20,20,0,0" VerticalAlignment="Top">
+                                        <Border Width="75" Height="75" BorderBrush="Black" BorderThickness="2" CornerRadius="2">
+                                            <Image Width="75" Height="75" Source="{Binding Image}"/>
+                                        </Border>
+                                        <StackPanel VerticalAlignment="Center" Margin="5">
+                                            <Label Content="{Binding Nom}" FontSize="16" FontWeight="Bold"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Content="{Binding Prix}"/>
+                                                <Image Width="20" Source="IMG\ITEMS\coin.png" Height="20"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <ListView x:Name="BuildItemListBox" Margin="20" Height="200" ItemsSource="{Binding Stack}" Opacity="1" Background="Gray">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <Grid Width="180">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Text="{Binding Nom}" Grid.Column="1"/>
+                                                            <Image Source="{Binding Image}" Width="25" Height="25" Grid.Column="0"/>
+                                                            <TextBlock Text="{Binding Prix}" Grid.Column="3"/>
+                                                            <Image Source="IMG/ITEMS/coin.png" Width="25" Height="25" Grid.Column="4"/>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                        <ContentControl Grid.Row="1" Content="{Binding Path=SelectedItem, ElementName=BuildItemListBox}">
+                                            <ContentControl.ContentTemplate>
+                                                <DataTemplate>
+                                                    <Grid Margin="20,0,20,10">
+                                                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                                            <TextBlock Text="{Binding StatsInfo}" TextWrapping="WrapWithOverflow">
+
+                                                            </TextBlock>
+                                                        </ScrollViewer>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ContentControl.ContentTemplate>
+
+                                        </ContentControl>
+                                    </Grid>
+
+                                    <ContentControl Grid.Column="1" Grid.Row="0" Margin="5" Content="{Binding Path=SelectedItem, ElementName=BuildListBox}">
+                                        <ContentControl.ContentTemplate>
+                                            <DataTemplate>
+                                                <Border>
+                                                    <Grid>
+                                                        <ContentControl Content="{Binding Hero}">
+                                                            <ContentControl.ContentTemplate>
+                                                                <DataTemplate>
+                                                                    <Border>
+                                                                        <Grid>
+                                                                            <Grid Margin="15">
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition Width="*"/>
+                                                                                    <ColumnDefinition Width="*"/>
+                                                                                </Grid.ColumnDefinitions>
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="*"/>
+                                                                                    <RowDefinition Height="*"/>
+                                                                                    <RowDefinition Height="*"/>
+                                                                                    <RowDefinition Height="*"/>
+                                                                                    <RowDefinition Height="*"/>
+                                                                                </Grid.RowDefinitions>
+
+                                                                                <TextBox x:Name="Sante" Visibility="Hidden" Text="{Binding Sante}"/>
+                                                                                <TextBox x:Name="ProgSante" Visibility="Hidden" Text="{Binding ProgSante}"/>
+                                                                                <TextBox x:Name="Mana" Visibility="Hidden" Text="{Binding Mana}"/>
+                                                                                <TextBox x:Name="ProgMana" Visibility="Hidden" Text="{Binding ProgMana}"/>
+                                                                                <TextBox x:Name="RegeSante" Visibility="Hidden" Text="{Binding RegeSante}"/>
+                                                                                <TextBox x:Name="ProgRegeSante" Visibility="Hidden" Text="{Binding ProgRegeSante}"/>
+                                                                                <TextBox x:Name="RegeMana" Visibility="Hidden" Text="{Binding RegeMana}"/>
+                                                                                <TextBox x:Name="ProgRegeMana" Visibility="Hidden" Text="{Binding ProgRegeMana}"/>
+                                                                                <TextBox x:Name="Physique" Visibility="Hidden" Text="{Binding Physique}"/>
+                                                                                <TextBox x:Name="ProgPhysique" Visibility="Hidden" Text="{Binding ProgPhysique}"/>
+                                                                                <TextBox x:Name="VitAttak" Visibility="Hidden" Text="{Binding VitAttak}"/>
+                                                                                <TextBox x:Name="ProgVitAttak" Visibility="Hidden" Text="{Binding ProgVitAttak}"/>
+                                                                                <TextBox x:Name="Range" Visibility="Hidden" Text="{Binding Range}"/>
+                                                                                <TextBox x:Name="ProgRange" Visibility="Hidden" Text="{Binding ProgRange}"/>
+                                                                                <TextBox x:Name="Armure" Visibility="Hidden" Text="{Binding Armure}"/>
+                                                                                <TextBox x:Name="ProgArmure" Visibility="Hidden" Text="{Binding ProgArmure}"/>
+                                                                                <TextBox x:Name="ResMagic" Visibility="Hidden" Text="{Binding ResMagic}"/>
+                                                                                <TextBox x:Name="ProgResMagic" Visibility="Hidden" Text="{Binding ProgResMagic}"/>
+                                                                                                                                                                <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="0">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}PV: {0} (+ {1}/niv)">
+                                                                                            <Binding Path="Sante"/>
+                                                                                            <Binding Path="ProgSante"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="1">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Regen. PV: {0} (+ {1}/niv)">
+                                                                                            <Binding Path="RegeSante"/>
+                                                                                            <Binding Path="ProgRegeSante"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="2">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Dégats d'attaque: {0} (+ {1} /niv)">
+                                                                                            <Binding Path="Physique"/>
+                                                                                            <Binding Path="ProgPhysique"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="3">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Vitesse d'attaque: {0} (+ {1} /niv)">
+                                                                                            <Binding Path="VitAttak"/>
+                                                                                            <Binding Path="ProgVitAttak"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="0" Grid.Row="4">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Portée: {0} (+ {1} /niv)">
+                                                                                            <Binding Path="Range"/>
+                                                                                            <Binding Path="ProgRange"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+
+                                                                                <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="0">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Mana: {0} (+ {1} /niv)">
+                                                                                            <Binding Path="Mana"/>
+                                                                                            <Binding Path="ProgMana"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="1">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Regen. Mana: {0} (+ {1} /niv)">
+                                                                                            <Binding Path="RegeMana"/>
+                                                                                            <Binding Path="ProgRegeMana"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="2">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Armure: {0} (+ {1}/niv)">
+                                                                                            <Binding Path="Armure"/>
+                                                                                            <Binding Path="ProgArmure"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="3">
+                                                                                    <TextBlock.Text>
+                                                                                        <MultiBinding StringFormat="{}Résistance magique: {0} (+ {1} /niv)">
+                                                                                            <Binding Path="ResMagic"/>
+                                                                                            <Binding Path="ProgResMagic"/>
+                                                                                        </MultiBinding>
+                                                                                    </TextBlock.Text>
+                                                                                </TextBlock>
+                                                                                <TextBlock Background="Transparent" Grid.Column="1" Grid.Row="4" Text="{Binding Vitesse, StringFormat={}Vitesse de déplacement : {0}}">
+                                                                                </TextBlock>
+                                                                            </Grid>
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </DataTemplate>
+                                                            </ContentControl.ContentTemplate>
+                                                        </ContentControl>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ContentControl.ContentTemplate>
+                                    </ContentControl>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ContentControl.ContentTemplate>
+                </ContentControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

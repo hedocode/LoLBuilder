@@ -1,0 +1,305 @@
+4
+Alistar
+Minotaure
+Support
+IMG/CHAMPS/Alistar_Splash_Tile_5.jpg
+C01
+1350
+330
+613,36
+106
+8,675
+0,85
+279
+35,8
+8,5
+0,75
+61,11
+3,62
+0
+0,625
+0,0133
+24,38
+3,5
+32,1
+1,25
+0
+0
+0
+0
+0
+125
+0
+Piétinement
+Passif
+Quand Alistar utilise une compétence, il profite de Piétinement et inflige 6 + {0} dégâts aux unités et tourelles proches pendant 3 secondes.
+IMG/SORTS/Alistar_Passive.png
+Pas de délai de récupération
+10
+0
+0
+0
+Atomisation
+65/70/75/80/85 Mana
+Alistar frappe le sol, infligeant 60 / 105 / 150 / 195 / 240 + {0}(% Puiss.) pts de dégâts magiques à tous les ennemis proches et les projetant dans les airs pendant 1 seconde. Les unités ainsi affectées sont étourdies pendant 0.5 secondes lors de l'atterrissage.
+IMG/SORTS/Pulverize.png
+Récup. : 17 / 16 / 15 / 14 / 13 sec.
+50
+0
+0
+0
+Coup de tête
+65/70/75/80/85 Mana
+Alistar frappe le sol, infligeant 60 / 105 / 150 / 195 / 240 + {0}(% Puiss.) pts de dégâts magiques à tous les ennemis proches et les projetant dans les airs pendant 1 seconde. Les unités ainsi affectées sont étourdies pendant 0.5 secondes lors de l'atterrissage.
+IMG/SORTS/Headbutt.png
+Récup. : 14 / 13 / 12 / 11 / 10 sec.
+50
+42
+0
+0
+Cri triomphant
+50/60/70/80/90 Mana
+Alistar pousse un cri de guerre et se rend 60 / 90 / 120 / 150 / 180 + {0}(% Puiss.) PV ainsi que la moitié de l'effet à toutes les unités alliées proches. Le temps de récupération est réduit de 2 secondes à chaque fois qu'une unité ennemie est tuée à proximité.
+IMG/SORTS/TriumphantRoar.png
+Récup. : 16 sec.
+20
+0
+0
+0
+Volonté de fer
+100 pts de mana
+Purge les effets entravants qui affectent Alistar, lequel gagne 60 / 75 / 90 de dégâts d'attaque et subit des dégâts physiques et magiques réduits de 70% pendant 7 secondes.
+IMG/SORTS/FerociousHowl.png
+Récup. : 120 / 100 / 80 sec.
+0
+0
+0
+0
+Ekko
+Fractureur du temps
+Assassin
+IMG/CHAMPS/Ekko_Splash_Tile_0.jpg
+C02
+6300
+340
+580
+80
+9
+0,9
+280
+50
+6
+0,8
+59
+3
+0
+0,625
+3,3
+27
+3
+32
+1,25
+0
+0
+0
+0
+0
+125
+0
+RéZonance
+Passif
+Les compétences infligeant des dégâts et les attaques d'Ekko appliquent un effet RéZonance sur ses ennemis pendant 4 secondes, cumulable jusqu'à 3 fois.  Au bout de 3 effets sur la même cible, Ekko lui inflige 10 (+10) + {0} pts dégâts magiques et la ralentit de 30 / 40 / 50 / 60% pendant 2 / 2.5 / 3 secondes. Contre des champions ennemis, Ekko gagne également un bonus de 40 / 50 / 60 / 80% en vitesse de déplacement pendant 2 / 2.5 / 3 secondes.   Cet effet ne peut pas se déclencher plus d'une fois toutes les 5 secondes sur la même cible.
+IMG/SORTS/Ekko_RéZonance.png
+Pas de délai de récupération
+80
+0
+0
+0
+RétroBang
+50/60/70/80/90 Mana
+Ekko lance un appareil dans la direction ciblée, blessant tous les ennemis sur la trajectoire. Quand le projectile atteint sa portée maximale ou touche un champion ennemi, il se dilate en infligeant 60 / 75 / 90 / 105 / 120 + {0} dégâts magiques et crée un champ qui ralentit toutes les unités neutres ou ennemies de 32 / 39 / 46 / 53 / 60%. Après un temps, l'appareil se contracte et revient rapidement vers Ekko, infligeant 40 / 65 / 90 / 115 / 140 + {1} de dégâts magiques à tous les ennemis sur sa route.
+IMG/SORTS/Ekko_RétroBang.png
+Récup. : 9 / 8.5 / 8 / 7.5 / 7 sec.
+20
+60
+0
+0
+Convergence Parallèle
+50/55/60/65/70 Mana
+PASSIVE :  Les attaques de base d'Ekko infligent 5 + {0}(% Puiss.)% des PV manquants de la cible en pts de dégâts magiques supplémentaires contre les cibles ayant moins de 30% de leur PV max (maximum de 150 pts de dégâts contre les monstres et les sbires).   ACTIVE :  Ekko ouvre une faille temporelle, faisant intervenir un double de lui-même venant d'une réalité alternative qui lance un appareil vers l'endroit ciblé. 3 secondes après le lancement de Convergence Parallèle, les ennemis dans la sphère sont ralentis de 40%. Les ennemis n'obtiennent la vision de la zone ciblé que 0.5 secondes avant son apparition. Ekko n'obtient la vision de la zone ciblé que 2 secondes après le lancement de Convergence Parallèle et aussi longtemps que dure le champ de ralentissement. Si Ekko entre dans la sphère, elle explose, lui fournissant un bouclier de 80 / 100 / 120 / 140 / 160 + {1} pendant 2 secondes et étourdissant tous les ennemis pris à l'intérieur pendant 1.75 secondes. Ekko peut faire exploser la sphère même lorsqu'il est mort ou en stase.
+IMG/SORTS/Ekko_ConvergenceParallèle.png
+Récup. : 22 / 20 / 18 / 16 / 14 sec.
+1
+150
+0
+0
+Rush déphasé
+40/50/60/70/80 Mana
+Ekko fonce vers la zone ciblée sur une courte distance, permettant d'augmenter la portée de sa prochaine attaque de base, d'infliger 50 / 80 / 110 / 140 / 170 + {0}(% Puiss.) pts de dégâts magiques supplémentaires, d'appliquer les effets de sorts et de se téléporter près de sa cible.
+IMG/SORTS/Ekko_RushDéphasé.png
+Récup. : 13 / 11.5 / 10 / 8.5 / 7 sec.
+20
+0
+0
+0
+Chronofracture
+100 Mana
+Après un court délai d'incantation, Ekko se téléporte à l'emplacement de son hologramme, se rendant brièvement invulnérable et impossible à cibler pendant la durée, infligeant 150 / 300 / 450 + {0} pts de dégâts magiques aux ennemis proches à l'arrivée et se soignant de 100 / 150 / 200 PV plus 20 + {1}(% Puiss.)% des PV perdus durant les 4 dernières secondes.
+IMG/SORTS/Ekko_Chronofracture.png
+Récup. : 110 / 90 / 70 sec.
+150
+7
+0
+0
+Tristana
+Canonnière Megling
+Tireur
+IMG/CHAMPS/Tristana_Splash_Tile_0.jpg
+C03
+1350
+325
+542,76
+82
+6,19
+0,65
+246,76
+32
+7,205
+0,45
+51,54
+3
+0
+0,656
+0,01
+22
+3
+30
+0
+0
+0
+0
+0
+0
+543
+7
+Tir de Précision
+0
+La portée d'attaque de Tristana, Tir à l'impact et de son Tir Explosif est augmentée de 7 par niveau. 
+IMG/SORTS/Tristana_TirdePrécision.png
+Pas de délai de récupération
+0
+0
+0
+0
+Tir Rapide
+0
+Augmente la vitesse d'attaque de Tristana de 30 / 50 / 70 / 90 / 110% pendant 5 secondes.  Chaque attaque de base contre une cible marquée par Charge explosive réduit le délai de récupération de Tir rapide de 1 seconde.
+IMG/SORTS/Tristana_TirRapide.png
+Récup. : 20 sec.
+0
+0
+0
+0
+Saut Roquette
+Coût : 80 Mana
+Tristana pointe son arme vers le sol et tire pour se propulser jusqu'à l'endroit visé, infligeant 80 / 105 / 130 / 155 / 180 +{0}(% Puiss) pts de dégâts magiques et ralentissant de 60% pendant 1/1.5/2/2.5/3 secondes toutes les unités proches lorsqu'elle atterrit.  Les dégâts de Saut roquette sont augmentés si elle atterrit sur une unité affectée par Charge explosive (25% par effets cumulés). Si 4 effet sont cumulés sur la cible, Saut Roquette fait exploser immédiatement la cible.   Tuer des champions et effectuer des assistances met fin au délai de récupération de Saut Roquette.
+IMG/SORTS/Tristana_SautRoquette.png
+Récup. : 22 / 20 / 18 / 16 / 14 sec.
+50
+0
+0
+0
+Charge Explosive
+Coût : 50 / 60 / 70 / 80 / 90 mana
+PASSIVE :  Les ennemis explosent lorsqu'ils sont tués par les attaques de base de Tristana, infligeant 50 / 75 / 100 / 125 / 150 + {0}(% Puiss.) pts de dégâts magiques aux ennemis proches.     ACTIVE :  Place une charge sur une unité ou une tourelle ennemie. Au bout de 4 sec, la cible explose, infligeant 60 / 70 / 80 / 90 / 100 + {0}(% Puiss) (+50 / 65 / 80 / 95 / 110%) pts de dégâts physiques aux ennemis proches.     Les attaques de base Tristana sur la cible augmentent de 30% les dégâts de la charge (cumulable 4 fois). Si 4 effets sont cumulés sur la cible, la prochaine attaque de base de Tristana fait exploser immédiatement la charge. Le rayon de la déflagration est deux fois plus grand en cas d'utilisation contre une tourelle.
+IMG/SORTS/Tristana_ChargeExplosive.png
+Récup. : 16 sec.
+25
+50
+0
+0
+Tir à Impact
+Coût : 100 mana
+Tristana tire un énorme boulet de canon sur une unité ennemie, infligeant 300 / 400 / 500 + {0}(% AP) pts de dégâts magiques et repoussant les unités proches sur une distance de 600 / 800 / 1000.
+IMG/SORTS/Tristana_TiràImpact.png
+Récup. : 100 / 85 / 70 sec.
+100
+0
+0
+0
+Garen
+Force de Demacia
+Tank
+IMG/CHAMPS/Garen_Splash_Tile_0.jpg
+C04
+450
+340
+616,28
+96
+7,84
+0,5
+0
+0
+0
+0
+57,88
+3,5
+0
+0,625
+0,018
+27,5
+2,7
+32,1
+1,25
+0
+0
+0
+0
+0
+125
+0
+Persévérance
+0
+Si Garen n'a pas subi de dégâts venant des monstres, des tourelles ou des champions durant les 9 / 6 / 4 dernières secondes, il régénère 0.4 / 0.8 / 2.0 % de ses PV max chaque seconde. Persévérance n'est plus désactivée par les monstres non-épiques à partir du niveau 11. 
+IMG/SORTS/Garen_Passive.png
+Pas de délai de récupération
+0
+0
+0
+0
+Coup Décisif
+Pas de Coût.
+Garen purge tous les ralentissements qui l'affectent et augmente sa vitesse de déplacement de 30% pendant 1.5 / 2 / 2.5 / 3 / 3.5 secondes.   Sa prochaine attaque de base dans les 4,5 secondes suivantes inflige 30 / 55 / 80 / 105 / 130 (+140% Degats attaque) pts de dégâts physiques et réduit la cible au silence pendant 1.5 seconde. 
+IMG/SORTS/Garen_Q.png
+Récup. : 8 sec.
+140
+0
+0
+0
+Courage
+Pas de Coût.
+passive :  Tuer des unités augmente définitivement l'armure et la résistance magique de 0.25, jusqu'à un maximum de 30.    active :  Garen bénéficie d'un bouclier pendant 2 / 3 / 4 / 5 / 6 secondes, réduisant les dégâts subits de 30%.
+IMG/SORTS/Garen_W.png
+Récup. : 24 / 23 / 22 / 21 / 20 sec.
+50
+0
+0
+0
+Jugement
+Pas de Coût.
+Garen fait rapidement tournoyer son épée autour de lui pendant 3 secondes, infligeant 14 / 18 / 22 / 26 / 30 (+34 / 35 / 36 / 37 / 38%) pts de dégâts physiques pour chaque coup porté aux ennemis proches. Jugement peut infliger un maximum de 5 / 6 / 7 / 8 / 9 / 10 coups durant la période de 3 secondes.   Garen ignore les collisions avec les unités pendant qu'il tournoie.  Jugement inflige 33% de dégâts supplémentaires lorsqu'il touche une cible unique. Garen peut réactiver cette compétence après 0,5 sec pour l'annuler. Si la compétence est annulée, la durée qu'il restait au tourbillon est rendue au délai de récupération. Jugement peut infliger des coups critiques, multipliant le ratio de dégâts d'attaque de 50% de son modificateur de dégâts critiques. 
+IMG/SORTS/Garen_E1.png
+Récup. : 9 sec.
+25
+50
+0
+0
+Justice de Demcia
+Pas de Coût.
+passive :  L'ennemi qui a tué le plus récemment un champion devient le Criminel. Les coups de Jugement et les attaques de base contre le Criminel infligent des dégâts bruts supplémentaires équivalents à 1% des PV max de la cible.  active :  Garen en appelle à la puissance de Demacia pour tenter d'exécuter un champion ennemi, infligeant 175 / 350 / 525 pts de dégâts magiques plus 28 / 33 / 40% des PV manquants de la cible.  Justice de Démacia inflige des dégâts bruts au Criminel au lieu de dégâts magiques.
+IMG/SORTS/Garen_R.png
+Récup. : 120 / 100 / 80 sec.
+100
+0
+0
+0

@@ -1,0 +1,14 @@
+C:\Users\Florent\Documents\Visual Studio 2015\Projects\Champions\Champions\bin\Debug\Champions.dll
+C:\Users\Florent\Documents\Visual Studio 2015\Projects\Champions\Champions\bin\Debug\Champions.pdb
+C:\Users\Florent\Documents\Visual Studio 2015\Projects\Champions\Champions\obj\Debug\Données.csprojResolveAssemblyReference.cache
+C:\Users\Florent\Documents\Visual Studio 2015\Projects\Champions\Champions\obj\Debug\Champions.dll
+C:\Users\Florent\Documents\Visual Studio 2015\Projects\Champions\Champions\obj\Debug\Champions.pdb
+G:\Projet\Champions\Champions\bin\Debug\Champions.dll
+G:\Projet\Champions\Champions\bin\Debug\Champions.pdb
+G:\Projet\Champions\Champions\obj\Debug\Données.csprojResolveAssemblyReference.cache
+G:\Projet\Champions\Champions\obj\Debug\Champions.dll
+G:\Projet\Champions\Champions\obj\Debug\Champions.pdb
+J:\Projet\Champions\Champions\bin\Debug\Champions.dll
+J:\Projet\Champions\Champions\bin\Debug\Champions.pdb
+J:\Projet\Champions\Champions\obj\Debug\Champions.dll
+J:\Projet\Champions\Champions\obj\Debug\Champions.pdb
