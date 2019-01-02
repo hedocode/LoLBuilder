@@ -1,5 +1,5 @@
 # LoLBuilder
-###A non-updated League of Legends Builder that gives builds stats.
+### A non-updated League of Legends Builder that gives builds stats.
 
 #### A 5 week school project
 With a mate, we had to code a C#/WPF Master Detail.<br>
@@ -15,7 +15,7 @@ My second work was to check if my mate did the code behind properly, and he did,
 
 
 # LoLBuilder
-###Un Builder League of Legends non mis-à-jour.
+### Un Builder League of Legends non mis-à-jour.
 
 #### Un project de 5 semaines
 Avec un camarade, nous devions coder un Master Detail.<br>
